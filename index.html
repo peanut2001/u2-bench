@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U2-BENCH: Benchmarking Large Vision-Language Models on Ultrasound Understanding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-container">
+                        <img src="AI.png" alt="U2-BENCH Logo" class="logo-image">
+                        <div class="logo-text">
+                            <h1>U2-BENCH</h1>
+                            <span class="subtitle">Benchmarking Large Vision-Language Models on Ultrasound
+                                Understanding</span>
+                        </div>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="https://arxiv.org/abs/2505.17779" class="nav-link" target="_blank">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Paper</span>
+                    </a>
+                    <a href="https://anonymous.4open.science/r/U2-Bench-F781/VLMEVALKIT/" class="nav-link"
+                        target="_blank">
+                        <i class="fas fa-code"></i>
+                        <span>Code</span>
+                    </a>
+                    <a href="https://huggingface.co/datasets/DolphinAI/u2-bench/tree/main" class="nav-link"
+                        target="_blank">
+                        <i class="fas fa-database"></i>
+                        <span>Evaluation Data</span>
+                    </a>
+                    <a href="#" class="nav-link" id="dolphinAIBtn">
+                        <i class="fas fa-cogs"></i>
+                        <span>Dolphin AI Instruct</span>
+                    </a>
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <h2 class="hero-title">U2-BENCH Leaderboard</h2>
+                <p class="hero-description">
+                    A comprehensive benchmark for evaluating large vision-language models on ultrasound understanding
+                    tasks.
+                    Track the performance of state-of-the-art multimodal models across various ultrasound analysis
+                    challenges.
+                </p>
+            </div>
+
+            <div class="controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search models...">
+                </div>
+                <div class="filters">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="medical">Medical-Specific Open-Source Models</option>
+                        <option value="open">Open-Source Multimodal Models</option>
+                        <option value="closed">Closed-Source Multimodal Models</option>
+                    </select>
+                    <button id="refreshBtn" class="refresh-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+
+            <div class="leaderboard-container">
+                <div class="table-wrapper">
+                    <table class="leaderboard-table" id="leaderboardTable">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-column="model">
+                                    Models <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="rank">
+                                    Rank <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="u2score">
+                                    U2-Score ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="dd_acc">
+                                    DD<br>Acc ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="dd_f1">
+                                    DD<br>F1 ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="vra_acc">
+                                    VRA<br>Acc ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="vra_f1">
+                                    VRA<br>F1 ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="ll_acc">
+                                    LL<br>Acc ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="od_acc">
+                                    OD<br>Acc ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="kd_acc">
+                                    KD<br>Acc ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="rmse">
+                                    CVE<br>RMSE ↓ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="mae">
+                                    CVE<br>MAE ↓ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="percent_4">
+                                    CVE<br>%_tol ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="bleu">
+                                    RG<br>BLEU% ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="rouge">
+                                    RG<br>Rouge% ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="bert">
+                                    RG<br>BERT% ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="bleu2">
+                                    CG<br>BLEU% ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="rouge2">
+                                    CG<br>Rouge% ↑ <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-column="bert2">
+                                    CG<br>BERT% ↑ <i class="fas fa-sort"></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Total Models</h3>
+                    <span id="totalModels">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Best Score</h3>
+                    <span id="bestScore">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Last Updated</h3>
+                    <span id="lastUpdated">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 U2-BENCH. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- API Suggestion Modal -->
+    <div id="apiModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-lightbulb"></i> API Suggestion</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    If you have a better API choice with superior performance, please share it with us!
+                    We're always looking for high-quality APIs to improve our benchmarking capabilities.
+                    Your suggestions help us provide better evaluation tools for the community.
+                </p>
+                <form id="apiSuggestionForm" class="api-form">
+                    <div class="form-group">
+                        <label for="apiUrl">API URL:</label>
+                        <input type="url" id="apiUrl" name="apiUrl" placeholder="https://api.example.com/v1/..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apiDescription">Description (Optional):</label>
+                        <textarea id="apiDescription" name="apiDescription"
+                            placeholder="Brief description of the API's advantages..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Send to Official Email
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
