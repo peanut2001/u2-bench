@@ -234,18 +234,21 @@ body {
 }
 
 .legend-box.top-1 {
-    background: linear-gradient(135deg, #4fd1c5 0%, #38b2ac 100%);
-    box-shadow: 0 2px 4px rgba(56, 178, 172, 0.3);
+    background: rgba(255, 215, 0, 0.4);
+    border: 2px solid rgba(255, 215, 0, 0.7);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
 .legend-box.top-2 {
-    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
-    box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+    background: rgba(59, 130, 246, 0.4);
+    border: 2px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 .legend-box.top-3 {
-    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
-    box-shadow: 0 2px 4px rgba(128, 90, 213, 0.3);
+    background: rgba(34, 197, 94, 0.4);
+    border: 2px solid rgba(34, 197, 94, 0.7);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
 }
 
 .legend-text {
