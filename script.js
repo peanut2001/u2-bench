@@ -465,7 +465,7 @@ const leaderboardData = [
   },
   {
     rank: 22,
-    model: "medgemma-4b-it",
+    model: "MedGemma-4B-it",
     dd_acc: 0.5005,
     dd_f1: 0.4336,
     vra_acc: 0.3071,
