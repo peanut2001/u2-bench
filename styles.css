@@ -47,8 +47,6 @@ body {
     z-index: 1;
 }
 
-
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -200,10 +198,59 @@ body {
 }
 
 .hero-description {
-    font-size: 1.125rem;
-    color: #718096;
-    max-width: 600px;
+    color: #4a5568;
+    font-size: 1.1rem;
+    max-width: 800px;
     margin: 0 auto;
+}
+
+.score-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.legend-title {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-box.top-1 {
+    background: linear-gradient(135deg, #4fd1c5 0%, #38b2ac 100%);
+    box-shadow: 0 2px 4px rgba(56, 178, 172, 0.3);
+}
+
+.legend-box.top-2 {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+}
+
+.legend-box.top-3 {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+    box-shadow: 0 2px 4px rgba(128, 90, 213, 0.3);
+}
+
+.legend-text {
+    font-size: 0.9rem;
+    color: #4a5568;
 }
 
 /* Controls */

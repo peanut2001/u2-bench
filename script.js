@@ -545,6 +545,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // Calculate initial ranks based on U2-Score (don't modify original data)
   currentData = calculateRanks([...leaderboardData]);
 
+  // Add legend for colored boxes
+  const heroSection = document.querySelector('.hero');
+  const legend = document.createElement('div');
+  legend.className = 'score-legend';
+  legend.innerHTML = `
+    <div class="legend-title">Score Rankings:</div>
+    <div class="legend-item">
+      <span class="legend-box top-1"></span>
+      <span class="legend-text">Best Score</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-box top-2"></span>
+      <span class="legend-text">Second Best</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-box top-3"></span>
+      <span class="legend-text">Third Best</span>
+    </div>
+  `;
+  heroSection.appendChild(legend);
+
   // Set initial sort indicator for U2-Score column
   setTimeout(() => {
     const u2scoreHeader = document.querySelector('[data-column="u2score"]');
