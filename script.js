@@ -443,7 +443,7 @@ const leaderboardData = [
 
   {
     rank: 21,
-    model: "Dolphon-V1-Preview",
+    model: "Dolphin-V1-Preview",
     dd_acc: 0.5652,
     dd_f1: 0.4968,
     vra_acc: 0.6603,
